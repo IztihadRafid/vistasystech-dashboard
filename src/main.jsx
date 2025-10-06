@@ -8,6 +8,9 @@ import DashboardAdminLayout from './DashboardLayoutAdmin/DashboardAdminLayout';
 import Projects from './components/Projects/Projects';
 import Clients from './components/Clients/Clients';
 import Communication from './components/Communication/Communication';
+import Ams from './components/AMS/Ams';
+import Attendancelogs from './components/AMS/Attendancelogs';
+import Payroll from './components/AMS/Payroll';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +28,29 @@ const router = createBrowserRouter([
       {
         path: "communication",
         element: <Communication></Communication>
-      }
+      },
+      {
+        path: "ams",
+        // element: <Ams></Ams>,
+        children:[
+          {
+            path: 'attendancelogs',
+            element: <Attendancelogs></Attendancelogs>
+          },
+           {
+            path: 'payroll',
+            element: <Payroll></Payroll> // device managemnt component
+          },
+           {
+            path: 'leave',
+            element: "" // leave managment component
+          },
+           {
+            path: 'notification',
+            element: "" // notification component
+          },
+        ]
+      },
     ]
   },
 ]);

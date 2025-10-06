@@ -31,7 +31,7 @@ const Projects = () => {
                 </TabsList>
             </Tabs>
 
-            <div className="border-[1px] p-2 rounded-2xl mb-2">
+            <div className="border-[1px] p-2 rounded-2xl  my-8">
                 <Tabs className={"p-2 flex lg:flex-row flex-col w-full"}>
                     <Input type="text" placeholder="Search Projects" />
                     <Select>
@@ -123,10 +123,10 @@ const Projects = () => {
                         </div>
                         <div className="flex justify-between my-2">
                             <p>Progress</p>
-                            <p>High</p>
+                            <p className="text-orange-400">70%</p>
                         </div>
                         <div className="mb-3">
-                            <Progress value={33} />
+                            <Progress value={33} className={'h-4'}/>
                         </div>
 
                         <div className="flex justify-between m-1 w-[300px]">
@@ -169,10 +169,10 @@ const Projects = () => {
                         </div>
                         <div className="flex justify-between my-2">
                             <p>Progress</p>
-                            <p>High</p>
+                            <p className="text-orange-400">70%</p>
                         </div>
                         <div className="mb-3">
-                            <Progress value={33} />
+                            <Progress value={43} className={'h-4'}/>
                         </div>
 
                         <div className="flex justify-between m-1 w-[300px]">
@@ -216,10 +216,10 @@ const Projects = () => {
                         </div>
                         <div className="flex justify-between my-2">
                             <p>Progress</p>
-                            <p>High</p>
+                            <p className="text-orange-400">70%</p>
                         </div>
                         <div className="mb-3">
-                            <Progress value={33} />
+                            <Progress value={73} className={'h-4'} />
                         </div>
 
                         <div className="flex justify-between m-1 w-[300px]">
@@ -261,10 +261,10 @@ const Projects = () => {
                         </div>
                         <div className="flex justify-between my-2">
                             <p>Progress</p>
-                            <p>High</p>
+                            <p className="text-orange-400">70%</p>
                         </div>
                         <div className="mb-3">
-                            <Progress value={33} />
+                            <Progress value={23} className={'h-4'} />
                         </div>
 
                         <div className="flex justify-between m-1 w-[300px]">

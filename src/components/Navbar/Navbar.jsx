@@ -9,10 +9,10 @@ const Navbar = () => {
                 <SidebarTrigger />
                 <h1 className="text-lg font-semibold">ProductivityPro</h1>
             </div>
-            <div className="flex justify-between space-x-3">
+            <div className="flex justify-between items-center space-x-3">
                 <Bell />
                 <div className="flex flex-col items-center space-x-2">
-                    <p>admin@demo.com</p>
+                    <p className="text-sm font-semibold">admin@demo.com</p>
                     <Badge className="bg-blue-200 text-blue-700">Admin</Badge>
                 </div>
                 <CircleUser/>
