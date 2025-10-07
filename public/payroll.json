@@ -1,0 +1,51 @@
+[
+  {
+    "Employee": "Dalton",
+    "Grosssalary": "123123",
+    "TotalDeduction": "1233",
+    "netSalary": "1123",
+    "status": "Paid"
+  },
+  {
+    "Employee": "Cena",
+    "Grosssalary": "123123",
+    "TotalDeduction": "123",
+    "netSalary": "123",
+    "status": "Paid"
+  },
+  {
+    "Employee": "Taniba",
+    "Grosssalary": "6,500",
+    "TotalDeduction": "30",
+    "netSalary": "6,470",
+    "status": "unPaid"
+  },
+  {
+    "Employee": "Smith",
+    "Grosssalary": "4,500",
+    "TotalDeduction": "30",
+    "netSalary": "6,470",
+    "status": ""
+  },
+  {
+    "Employee": "james",
+    "Grosssalary": "12133123",
+    "TotalDeduction": "123",
+    "netSalary": "123",
+    "status": "Paid"
+  },
+  {
+    "Employee": "johnson",
+    "Grosssalary": "123123",
+    "TotalDeduction": "123",
+    "netSalary": "123",
+    "status": "Paid"
+  },
+  {
+    "Employee": "henry",
+    "Grosssalary": "123123",
+    "TotalDeduction": "123",
+    "netSalary": "123",
+    "status": "Paid"
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "Employee": "Alice Owner",
+    "Department": "Executive",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "--:--",
+    "CheckOut": "--:--",
+    "Status": "Absent",
+    "Source": "N/A",
+    "Hours": "0.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Bob Smith",
+    "Department": "Marketing",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "09:00",
+    "CheckOut": "17:00",
+    "Status": "Present",
+    "Source": "System",
+    "Hours": "8.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Carol Johnson",
+    "Department": "Finance",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "08:45",
+    "CheckOut": "16:45",
+    "Status": "Present",
+    "Source": "System",
+    "Hours": "8.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "David Lee",
+    "Department": "Engineering",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "--:--",
+    "CheckOut": "--:--",
+    "Status": "Absent",
+    "Source": "N/A",
+    "Hours": "0.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Eva Green",
+    "Department": "Human Resources",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "09:15",
+    "CheckOut": "17:15",
+    "Status": "Present",
+    "Source": "System",
+    "Hours": "8.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Frank Miller",
+    "Department": "Sales",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "10:00",
+    "CheckOut": "18:00",
+    "Status": "Late",
+    "Source": "System",
+    "Hours": "7.5h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Grace Hall",
+    "Department": "Customer Support",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "09:00",
+    "CheckOut": "17:00",
+    "Status": "Present",
+    "Source": "System",
+    "Hours": "8.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Henry Young",
+    "Department": "Engineering",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "--:--",
+    "CheckOut": "--:--",
+    "Status": "Absent",
+    "Source": "N/A",
+    "Hours": "0.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Isabel King",
+    "Department": "Marketing",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "08:30",
+    "CheckOut": "16:30",
+    "Status": "Present",
+    "Source": "System",
+    "Hours": "8.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Jack Turner",
+    "Department": "Finance",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "09:00",
+    "CheckOut": "17:00",
+    "Status": "Present",
+    "Source": "System",
+    "Hours": "8.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Karen Scott",
+    "Department": "Human Resources",
+    "Date": "Oct 7, 2025",
+    "CheckIn": "09:10",
+    "CheckOut": "17:10",
+    "Status": "Present",
+    "Source": "System",
+    "Hours": "8.0h",
+    "Actions": ""
+  },
+  {
+    "Employee": "Leo Warker",
+    "Department": "Sales",
+    "Date": "Oct 3, 2025",
+    "CheckIn": "09:10",
+    "CheckOut": "17:10",
+    "Status": "Present",
+    "Source": "System",
+    "Hours": "8.0h",
+    "Actions": ""
+  }
+]

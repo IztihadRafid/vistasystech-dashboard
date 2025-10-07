@@ -1,4 +1,13 @@
-import React from "react"
+import React, { useState } from "react";
+
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
 import {
   Table,
   TableBody,
@@ -6,76 +15,119 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
-const TableComponent = ({ headers = [], data = [] }) => {
-  // Step 1: Normalize data keys (case-insensitive)
-  const normalizedData = data.map((item) => {
-    const newObj = {}
-    for (const key in item) {
-      const normalizedKey = key.toLowerCase().replace(/\s+/g, "")
-      newObj[normalizedKey] = item[key]
+const TableComponent = ({
+  headers = [],
+  data = [],
+  customRenderers = {},
+  isLoading = false,  // New prop for loading state
+}) => {
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
     }
-    return newObj
-  })
+  };
 
-  // Step 2: Create header → key mapping
-  const keyMap = {}
-  if (headers.length && data.length) {
-    const sampleKeys = Object.keys(normalizedData[0])
-    headers.forEach((header) => {
-      const normalizedHeader = header.toLowerCase().replace(/\s+/g, "")
-      // Try to find the most similar key
-      const match = sampleKeys.find((key) =>
-        key.includes(normalizedHeader) || normalizedHeader.includes(key)
-      )
-      keyMap[header] = match || normalizedHeader
-    })
-  }
+  const paginatedData = data.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
-  // Step 3: Render
+  // Generate skeleton rows if loading
+  const skeletonRows = Array(itemsPerPage).fill(null);
+
   return (
-    <div className="border rounded-lg overflow-hidden shadow-sm overflow-x-auto">
-      <Table>
-        <TableHeader>
-          <TableRow className="bg-gray-50">
-            {headers.map((header) => (
-              <TableHead key={header} className="font-semibold text-gray-700">
-                {header}
-              </TableHead>
-            ))}
-          </TableRow>
-        </TableHeader>
-
-        <TableBody>
-          {normalizedData.length > 0 ? (
-            normalizedData.map((row, rowIndex) => (
-              <TableRow key={rowIndex} className="hover:bg-gray-50">
-                {headers.map((header, colIndex) => {
-                  const key = keyMap[header]
-                  const value = row[key] ?? "—"
-                  return (
-                    <TableCell key={colIndex} className="text-gray-800">
-                      {value}
-                    </TableCell>
-                  )
-                })}
-              </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell
-                colSpan={headers.length || 1}
-                className="text-center text-gray-500 py-4"
-              >
-                No data found
-              </TableCell>
+    <div className="bg-white shadow rounded-xl">
+      <div className="p-4 ">
+        <Table className="rounded-xl overflow-hidden bg-white ">
+          <TableHeader className={""}>
+            <TableRow className=" ">
+              {headers.map((header) => (
+                <TableHead
+                  key={header.key}
+                  className="font-semibold text-gray-700"
+                >
+                  {header.label}
+                </TableHead>
+              ))}
             </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </div>
-  )
-}
+          </TableHeader>
 
-export default TableComponent
+          <TableBody>
+            {isLoading
+              ? // Show skeleton rows while loading
+              skeletonRows.map((_, idx) => (
+                <TableRow key={`skeleton-${idx}`}>
+                  {headers.map((header) => (
+                    <TableCell key={header.key}>
+                      {/* Skeleton cell */}
+                      <div className="h-4 bg-gray-200 rounded animate-pulse w-full max-w-[80px]"></div>
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+              : // Show real data rows
+              paginatedData.map((row, idx) => (
+                <TableRow key={idx}>
+                  {headers.map((header) => (
+                    <TableCell key={header.key}>
+                      {customRenderers[header.key]
+                        ? customRenderers[header.key](row)
+                        : row[header.key] ?? "-"}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+          </TableBody>
+        </Table>
+      </div>
+
+      {/* Pagination */}
+      {!isLoading && (
+        <div>
+          <Pagination className={"flex lg:justify-end justify-center md:my-5 p-5"}>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlePageChange(currentPage - 1);
+                  }}
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </PaginationPrevious>
+              </PaginationItem>
+
+              <PaginationItem>
+                <span className="px-4 py-2">
+                  {currentPage} of {totalPages}
+                </span>
+              </PaginationItem>
+
+              <PaginationItem>
+                <PaginationNext
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlePageChange(currentPage + 1);
+                  }}
+                  disabled={currentPage === totalPages}
+                >
+                  Next
+                </PaginationNext>
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default TableComponent;
