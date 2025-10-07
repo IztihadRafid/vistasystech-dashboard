@@ -7,7 +7,7 @@ import { Outlet } from "react-router";
 import Footer from "@/components/Footer/Footer";
 const DashboardAdminLayout = () => {
     return (
-        <SidebarProvider>
+        <SidebarProvider className={"bg-gray-50"}>
             <div className="flex min-h-screen w-full">
                 <AppSidebar/>{/* Sidebar stays on the left */}
 
